@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Log In Page</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript">
+	function validate()
+	{
+		 	var mail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+             var mob=/^[7-9][0-9]{9}$/
+             var pass2=document.form2.password2.value;
+             
+             if(mail.test(form2.email.value)) //is valid email
+         	{
+         		if(mob.test(form2.phno.value)) //is valid phno
+         			{
+         				if(pass2.length>=8) //is password length >8
+         					{
+         						return true;
+         					}
+         				else
+         					{
+             					 alert("Password Length Should Be 8 Or More Than 8 Character!!!");
+                                  return false;
+         					}
+         			}
+         		else
+         			{
+             			 alert("Enter Valid Number!!!");
+                          return false;
+         			}
+         	}
+         else
+         	{
+             	 alert("Please Enter Valid Email!!!");
+                  return false;
+         	}
+	}
+</script>
+
+
+</head>
+
+
+	
+	 <form method="POST" name="form" action="servlet">
+	 <h1 class="header1">Welcome Developer</h1>
+        
+            <div id="login-box">
+                <div class="left">
+                <h1>Sign In</h1>
+                
+                <input type="text" name="username1" placeholder="Username" required />
+                <input type="password" name="password1" placeholder="Password" required />
+                <input type="submit" name="SignIn" value="Sign In">
+				              
+                </div>
+              
+                
+               
+            </div>
+        </form >
+		<form method="POST" name="form2" action="servlet2"  onsubmit="return validate()">
+			<div id="login-box2">
+				<div class="right">
+				<h1>Sign UP</h1>
+                
+				<input type="text" name="username2" placeholder="Username" required />
+                <input type="text" name="email" placeholder="E-mail" required />
+                <input type="text" name="phno" placeholder="Phone Number" required />
+                <input type="password" name="password2" placeholder="Password" required />
+               
+
+                <input type="submit" name="SignUP" value="Sign Up">
+				
+                </div>
+                 <div class="or">OR</div>
+			</div>
+		</form>
+</body>
+</html>
